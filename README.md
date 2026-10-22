@@ -35,10 +35,10 @@ The application manages employee details such as Name, Age, and Salary. It suppo
 EMP_record_management/
 │
 ├── Models/
-│   └── emp.cs
+│   └── Employee.cs
 │
 ├── Interfaces/
-│   └── Iemp.cs
+│   └── IEmployee.cs
 │
 ├── Services/
 │   ├── EmployeeManager.cs
@@ -46,9 +46,9 @@ EMP_record_management/
 │
 ├── Storage/
 │   ├── EmployeeStorageBase.cs
-│   ├── txtfile.cs
-│   ├── csvfile.cs
-│   └── jsonfile.cs
+│   ├── Txtfile.cs
+│   ├── Csvfile.cs
+│   └── Jsonfile.cs
 │
 ├── MainWindow.xaml
 ├── MainWindow.xaml.cs
