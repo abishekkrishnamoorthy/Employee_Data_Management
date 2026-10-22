@@ -11,11 +11,11 @@ namespace EMP_record_management.Services
     {
         // Save employee data in the selected format
         public void SaveEmployees(
-            IReadOnlyList<emp> employees,
+            IReadOnlyList<Employee> employees,
             string filePath,
             string format)
         {
-            Iemp storage;
+            IEmployee storage;
 
             if (format.Equals("TXT", StringComparison.OrdinalIgnoreCase))
             {
@@ -34,13 +34,13 @@ namespace EMP_record_management.Services
                 throw new ArgumentException("Unsupported file format.");
             }
 
-            storage.save(new List<emp>(employees), filePath);
+            storage.save(new List<Employee>(employees), filePath);
         }
 
         // Restore employee data based on file extension
-        public List<emp> RestoreEmployees(string filePath)
+        public List<Employee> RestoreEmployees(string filePath)
         {
-            Iemp storage;
+            IEmployee storage;
 
             if (filePath.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
             {

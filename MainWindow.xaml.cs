@@ -35,7 +35,7 @@ namespace EMP_record_management
                 return;
             }
 
-            emp employee = new emp
+            Employee employee = new Employee
             {
                 Name = NameTextBox.Text.Trim(),
                 Age = age,

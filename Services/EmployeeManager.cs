@@ -6,26 +6,26 @@ namespace EMP_record_management.Services
 {
     internal class EmployeeManager
     {
-        private readonly List<emp> employees = new List<emp>();
+        private readonly List<Employee> employees = new List<Employee>();
 
         private readonly EmployeeService employeeService =
             new EmployeeService();
 
-        public IReadOnlyList<emp> Employees => employees;
+        public IReadOnlyList<Employee> Employees => employees;
 
         // Add sample employee records
         public void Init()
         {
             employees.Clear();
 
-            employees.Add(new emp
+            employees.Add(new Employee
             {
                 Name = "Arun",
                 Age = 25,
                 Salary = 25000m
             });
 
-            employees.Add(new emp
+            employees.Add(new Employee
             {
                 Name = "Priya",
                 Age = 24,
@@ -34,7 +34,7 @@ namespace EMP_record_management.Services
         }
 
         // Add a new employee
-        public void Add(emp employee)
+        public void Add(Employee employee)
         {
             employees.Add(employee);
         }
@@ -49,7 +49,7 @@ namespace EMP_record_management.Services
         // Restore employee records from a file
         public void Restore(string filePath)
         {
-            List<emp> restoredEmployees =
+            List<Employee> restoredEmployees =
                 employeeService.RestoreEmployees(filePath);
 
             employees.Clear();

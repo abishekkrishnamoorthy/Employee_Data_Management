@@ -10,7 +10,7 @@ namespace EMP_record_management.Storage
     internal class csvfile : EmployeeStorageBase
     {
         public override void save(
-            List<emp> employees, string filePath)
+            List<Employee> employees, string filePath)
         {
             ValidatePath(filePath, ".csv", false);
 
@@ -18,7 +18,7 @@ namespace EMP_record_management.Storage
 
             writer.WriteLine("Name,Age,Salary");
 
-            foreach (emp employee in employees)
+            foreach (Employee employee in employees)
             {
                 string name = employee.Name.Replace("\"", "\"\"");
 
@@ -29,12 +29,12 @@ namespace EMP_record_management.Storage
             }
         }
 
-        public override List<emp> restore(string filePath)
+        public override List<Employee> restore(string filePath)
         {
             ValidatePath(filePath, ".csv", true);
 
             string[] lines = File.ReadAllLines(filePath);
-            List<emp> employees = new List<emp>();
+            List<Employee> employees = new List<Employee>();
 
             for (int i = 1; i < lines.Length; i++)
             {
@@ -55,7 +55,7 @@ namespace EMP_record_management.Storage
                         $"Invalid CSV data at line {i + 1}.");
                 }
 
-                employees.Add(new emp
+                employees.Add(new Employee
                 {
                     Name = data[0],
                     Age = age,

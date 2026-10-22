@@ -10,7 +10,7 @@ namespace EMP_record_management.Storage
     internal class jsonfile : EmployeeStorageBase
     {
         public override void save(
-            List<emp> employees, string filePath)
+            List<Employee> employees, string filePath)
         {
             ValidatePath(filePath, ".json", false);
 
@@ -24,14 +24,14 @@ namespace EMP_record_management.Storage
             File.WriteAllText(filePath, json);
         }
 
-        public override List<emp> restore(string filePath)
+        public override List<Employee> restore(string filePath)
         {
             ValidatePath(filePath, ".json", true);
 
             string json = File.ReadAllText(filePath);
 
-            return JsonSerializer.Deserialize<List<emp>>(json)
-                ?? new List<emp>();
+            return JsonSerializer.Deserialize<List<Employee>>(json)
+                ?? new List<Employee>();
         }
     }
 }

@@ -7,7 +7,7 @@ using EMP_record_management.Interfaces;
 
 namespace EMP_record_management.Storage
 {
-    internal abstract class EmployeeStorageBase : Iemp
+    internal abstract class EmployeeStorageBase : IEmployee
     {
         protected void ValidatePath(
             string filePath,
@@ -41,8 +41,8 @@ namespace EMP_record_management.Storage
         }
 
         public abstract void save(
-            List<emp> employees, string filePath);
+            List<Employee> employees, string filePath);
 
-        public abstract List<emp> restore(string filePath);
+        public abstract List<Employee> restore(string filePath);
     }
 }

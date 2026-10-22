@@ -5,7 +5,7 @@ using System.Text;
 namespace EMP_record_management.Models
 //model
 {
-    internal class emp
+    internal class Employee
     {
         public string Name { get; set; } = string.Empty;
 

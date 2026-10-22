@@ -9,24 +9,24 @@ namespace EMP_record_management.Storage
     internal class txtfile : EmployeeStorageBase
     {
         public override void save(
-            List<emp> employees, string filePath)
+            List<Employee> employees, string filePath)
         {
             ValidatePath(filePath, ".txt", false);
 
             using StreamWriter writer = new StreamWriter(filePath);
 
-            foreach (emp employee in employees)
+            foreach (Employee employee in employees)
             {
                 writer.WriteLine(
                     $"{employee.Name}|{employee.Age}|{employee.Salary}");
             }
         }
 
-        public override List<emp> restore(string filePath)
+        public override List<Employee> restore(string filePath)
         {
             ValidatePath(filePath, ".txt", true);
 
-            List<emp> employees = new List<emp>();
+            List<Employee> employees = new List<Employee>();
 
             foreach (string line in File.ReadAllLines(filePath))
             {
@@ -44,7 +44,7 @@ namespace EMP_record_management.Storage
                         "Invalid employee data in TXT file.");
                 }
 
-                employees.Add(new emp
+                employees.Add(new Employee
                 {
                     Name = data[0],
                     Age = age,
